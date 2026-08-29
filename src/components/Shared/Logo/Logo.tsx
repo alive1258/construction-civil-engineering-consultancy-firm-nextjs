@@ -1,35 +1,40 @@
 /* ================= LOGO MARK (SVG) ================= */
-/* A leaf-in-wave glyph inside a solid circle — evokes sustainability +
-   sailing without needing an external asset. Reused as-is on both light
-   (Navbar) and dark (Footer) backgrounds since the circle carries its own
-   brand fill. */
-export const LogoMark = ({ className = "w-9 h-9" }: { className?: string }) => (
-  <svg
-    viewBox="0 0 40 40"
-    className={`shrink-0 ${className}`}
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
+/* A simple structural/columns glyph inside a rounded square — reads as
+   architecture + engineering without needing an external asset. */
+export const LogoMark = ({
+  className = "w-9 h-9",
+  variant = "dark",
+}: {
+  className?: string;
+  variant?: "dark" | "light";
+}) => (
+  <span
+    className={`inline-flex shrink-0 items-center justify-center rounded-lg ${className} ${
+      variant === "dark" ? "bg-brand-900" : "bg-white/10"
+    }`}
   >
-    <circle cx="20" cy="20" r="20" fill="#1F6F63" />
-    <path
-      d="M13 24c2-6 7-9 13-9-1 6-4 11-10 12.5-1.7.4-3.4-1.4-3-3.5Z"
-      fill="#EAF5F3"
-    />
-    <path
-      d="M9 27c5.5 1.5 11 1.5 16.5-2"
-      stroke="#EAF5F3"
-      strokeWidth="2"
+    <svg
+      viewBox="0 0 24 24"
+      className="h-[55%] w-[55%]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
       strokeLinecap="round"
-    />
-  </svg>
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 21h18" />
+      <path d="M5 21V8l7-5 7 5v13" />
+      <path d="M9 21v-6h6v6" />
+    </svg>
+  </span>
 );
 
 /* ================= LOGO (MARK + WORDMARK) ================= */
 const SIZES = {
-  sm: { icon: "w-7 h-7", text: "text-lg" },
-  md: { icon: "w-9 h-9", text: "text-xl" },
-  lg: { icon: "w-11 h-11", text: "text-2xl" },
+  sm: { icon: "w-8 h-8", text: "text-base" },
+  md: { icon: "w-9 h-9", text: "text-lg" },
+  lg: { icon: "w-11 h-11", text: "text-xl" },
 } as const;
 
 interface LogoProps {
@@ -42,19 +47,26 @@ const Logo = ({ variant = "dark", size = "md", className = "" }: LogoProps) => {
   const { icon, text } = SIZES[size];
 
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <LogoMark className={icon} />
-      <span
-        className={`relative font-bold leading-none whitespace-nowrap tracking-tight ${text} ${
-          variant === "dark" ? "text-brand-900" : "text-white"
-        }`}
-      >
-        eco
+    <span className={`inline-flex items-center gap-3 ${className}`}>
+      <LogoMark
+        className={`${icon} ${variant === "dark" ? "text-gold-500" : "text-gold-400"}`}
+        variant={variant}
+      />
+      <span className="leading-tight">
         <span
-          className={`absolute -right-2 -top-1 h-1.5 w-1.5 rounded-full ${
-            variant === "dark" ? "bg-gold-500" : "bg-gold-400"
+          className={`block font-display font-bold tracking-tight ${text} ${
+            variant === "dark" ? "text-brand-900" : "text-white"
           }`}
-        />
+        >
+          MERIDIAN
+        </span>
+        <span
+          className={`block text-[10px] font-semibold uppercase tracking-[0.14em] ${
+            variant === "dark" ? "text-gold-600" : "text-gold-400"
+          }`}
+        >
+          Engineering &amp; Consultancy
+        </span>
       </span>
     </span>
   );

@@ -1,33 +1,34 @@
 /* Tailwind import MUST be first */
 @import "tailwindcss";
 
-/* ================= BRAND THEME (Eco Yachts) ================= */
+/* ================= BRAND THEME (Meridian Engineering & Consultancy) ================= */
 @theme {
-  --color-brand-50: #eaf5f3;
-  --color-brand-100: #d3ebe6;
-  --color-brand-200: #a8d8cd;
-  --color-brand-300: #7cc2b2;
-  --color-brand-400: #4ca997;
-  --color-brand-500: #2e8b7a;
-  --color-brand-600: #1f6f63;
-  --color-brand-700: #175b51;
-  --color-brand-800: #123f39;
-  --color-brand-900: #0b2622;
+  --color-brand-50: #f4f6f8;
+  --color-brand-100: #e4e8ec;
+  --color-brand-200: #c7cfd8;
+  --color-brand-300: #9aa7b4;
+  --color-brand-400: #6b7a8c;
+  --color-brand-500: #47566a;
+  --color-brand-600: #2a3949;
+  --color-brand-700: #1c2733;
+  --color-brand-800: #131c27;
+  --color-brand-900: #0b1726;
 
-  --color-gold-400: #e3b75c;
-  --color-gold-500: #d2a046;
-  --color-gold-600: #b98530;
+  --color-gold-400: #c8a876;
+  --color-gold-500: #b08d57;
+  --color-gold-600: #8c6d3f;
 
-  --font-script: var(--font-caveat), cursive;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ================= ROOT THEME ================= */
 :root {
   --background: #ffffff;
-  --foreground: #0b2622;
+  --foreground: #0b1726;
   --border-color: #333;
   --border-color-hover: #444;
-  --primary: #1f6f63;
+  --primary: #0b1726;
 
   --card-gradient: linear-gradient(
     0deg,
@@ -41,6 +42,16 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 /* ================= LAYERS ================= */
@@ -67,6 +78,19 @@ body {
   .heading {
     @apply text-center font-medium md:text-[48px] text-3xl font-sans text-transparent bg-clip-text;
     background-image: linear-gradient(180deg, #000 20%, #555 90%);
+  }
+
+  /* ---- Meridian marketing-page primitives ---- */
+  .section-y {
+    @apply py-16 md:py-24;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-gold-600;
+  }
+
+  .lede {
+    @apply mt-4 max-w-xl text-base leading-relaxed text-brand-500;
   }
 }
 
