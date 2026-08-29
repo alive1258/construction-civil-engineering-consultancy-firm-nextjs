@@ -1,28 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Caveat } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import Providers from "@/src/lib/providers/Providers";
 import ToastProvider from "../components/Common/ToastProvider/ToastProvider";
 
 // ✅ Font Optimization
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-// Handwritten accent font for headline highlight words (e.g. "Journeys")
-const caveat = Caveat({
-  variable: "--font-caveat",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -30,44 +23,44 @@ const caveat = Caveat({
 // NOTE: metadataBase/canonical use a placeholder domain — swap in the
 // real domain once one is registered/deployed.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ecoyachts.com"),
+  metadataBase: new URL("https://meridian-engineering.com"),
 
   title: {
-    default: "Eco Yachts | Sustainable Yachts. Extraordinary Journeys.",
-    template: "%s | Eco Yachts",
+    default: "Meridian Engineering & Consultancy",
+    template: "%s | Meridian Engineering & Consultancy",
   },
 
   description:
-    "Charter eco-certified luxury yachts and sail the world responsibly. Curated journeys, sustainable travel, and unforgettable experiences on the water.",
+    "Integrated engineering, architecture, and civil consultancy services delivering innovative, sustainable, and technically sound solutions for complex projects.",
 
   keywords: [
-    "Eco Yachts",
-    "sustainable yacht charter",
-    "luxury yacht rental",
-    "eco-friendly yacht travel",
-    "yacht booking",
-    "responsible luxury travel",
+    "engineering consultancy",
+    "civil engineering",
+    "structural engineering",
+    "architecture firm",
+    "BIM services",
+    "project management consultancy",
   ],
 
-  authors: [{ name: "Eco Yachts" }],
-  creator: "Eco Yachts",
-  publisher: "Eco Yachts",
+  authors: [{ name: "Meridian Engineering & Consultancy" }],
+  creator: "Meridian Engineering & Consultancy",
+  publisher: "Meridian Engineering & Consultancy",
 
-  category: "travel",
+  category: "business",
 
   // ✅ Open Graph (Facebook, LinkedIn)
   openGraph: {
-    title: "Eco Yachts | Sustainable Yachts. Extraordinary Journeys.",
+    title: "Meridian Engineering & Consultancy",
     description:
-      "Charter eco-certified luxury yachts and sail the world responsibly.",
-    url: "https://ecoyachts.com",
-    siteName: "Eco Yachts",
+      "Integrated engineering, architecture, and civil consultancy services for complex, sustainable projects.",
+    url: "https://meridian-engineering.com",
+    siteName: "Meridian Engineering & Consultancy",
     images: [
       {
         url: "/images/hero-bg.jpg",
         width: 1600,
         height: 1000,
-        alt: "Eco Yachts — sustainable luxury yacht at sea",
+        alt: "Meridian Engineering & Consultancy",
       },
     ],
     locale: "en_US",
@@ -77,9 +70,9 @@ export const metadata: Metadata = {
   // ✅ Twitter SEO
   twitter: {
     card: "summary_large_image",
-    title: "Eco Yachts | Sustainable Yachts. Extraordinary Journeys.",
+    title: "Meridian Engineering & Consultancy",
     description:
-      "Charter eco-certified luxury yachts and sail the world responsibly.",
+      "Integrated engineering, architecture, and civil consultancy services for complex, sustainable projects.",
     images: ["/images/hero-bg.jpg"],
   },
 
@@ -99,7 +92,7 @@ export const metadata: Metadata = {
 
   // ✅ Canonical
   alternates: {
-    canonical: "https://ecoyachts.com",
+    canonical: "https://meridian-engineering.com",
   },
 
   // ✅ Icons
@@ -113,7 +106,7 @@ export const metadata: Metadata = {
   },
 
   // ✅ App Info
-  applicationName: "Eco Yachts",
+  applicationName: "Meridian Engineering & Consultancy",
   referrer: "origin-when-cross-origin",
 
   // ✅ Format detection
@@ -132,7 +125,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} font-sans antialiased bg-white text-brand-900`}
+        className={`${spaceGrotesk.variable} ${plexSans.variable} font-sans antialiased bg-white text-brand-900`}
       >
         <Providers>
           {children}
